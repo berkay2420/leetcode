@@ -1,0 +1,26 @@
+DROP TABLE Scores;
+
+CREATE TABLE Scores(
+	id int,
+    score DECIMAL(10,2)
+);
+
+INSERT INTO Scores
+VALUES (1,  3.50 );
+INSERT INTO Scores
+VALUES (2,  3.65);
+INSERT INTO Scores
+VALUES (3,  4.00);
+INSERT INTO Scores
+VALUES (4,  3.85 );
+INSERT INTO Scores
+VALUES (5,  4.00);
+INSERT INTO Scores
+VALUES (5,  3.65);
+
+SELECT *
+FROM Scores;
+
+SELECT score,
+	DENSE_RANK() OVER( ORDER BY score DESC) AS "rank"
+FROM Scores;
